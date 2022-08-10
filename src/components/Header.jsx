@@ -26,13 +26,10 @@ const Header = ({ setActive, active, user, handleLogout }) => {
                         <div className="collapse navbar-collapse" id='navbarSupportedContent'>
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <Link to='/' style={{ textDecoration: "none" }}>
-                                    <li className={`nav-item nav-link ${active === "home" ? "active" : ""}`} onClick={() => setActive("home")}>Home</li>
+                                    <li className={`nav-item nav-link ${active === "home" ? "active" : ""}`} onClick={() => setActive("home")}>Anasayfa</li>
                                 </Link>
                                 <Link to='/create' style={{ textDecoration: "none" }}>
-                                    <li className={`nav-item nav-link ${active === "create" ? "active" : ""}`} onClick={() => setActive("create")}>Create</li>
-                                </Link>
-                                <Link to='/about' style={{ textDecoration: "none" }}>
-                                    <li className={`nav-item nav-link ${active === "about" ? "active" : ""}`} onClick={() => setActive("about")}>About</li>
+                                    <li className={`nav-item nav-link ${active === "create" ? "active" : ""}`} onClick={() => setActive("create")}>Blog Ekle</li>
                                 </Link>
                             </ul>
                             <div className="row g-3">
@@ -48,12 +45,12 @@ const Header = ({ setActive, active, user, handleLogout }) => {
                                             </div>
                                             <p style={{marginTop: "12px", marginLeft: "5px"}}>{user?.displayName}</p>
                                             <li className="nav-item nav-link" onClick={handleLogout}>
-                                                Logout
+                                                Çıkış
                                             </li>
                                         </>
                                     ) : (
                                         <Link to='/auth' style={{ textDecoration: "none" }}>
-                                            <li className={`nav-item nav-link ${active === "login" ? "active" : ""}`} onClick={() => setActive("login")}>Login</li>
+                                            <li className={`nav-item nav-link ${active === "login" ? "active" : ""}`} onClick={() => setActive("login")}>Giriş</li>
                                         </Link>
                                     )}
 

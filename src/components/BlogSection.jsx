@@ -10,7 +10,7 @@ const BlogSection = ({ blogs, user, handleDelete }) => {
     return (
         <div>
             <div className="blog-heading text-start py-2 mb-4">
-                Daily Blogs
+                Günlük Yazılar
             </div>
             {blogs?.map((item) => (
                 <div className="row pb-4" key={item.id}>
@@ -37,7 +37,7 @@ const BlogSection = ({ blogs, user, handleDelete }) => {
                         </div>
 
                         <Link to={`/detail/${item.id}`}>
-                            <button className="btn btn-read">Read More</button>
+                            <button className="btn btn-read">Devamını Oku</button>
                         </Link>
 
                         {userId && item.userId === userId && (

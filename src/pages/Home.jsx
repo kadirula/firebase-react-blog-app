@@ -1,5 +1,5 @@
 import { collection, deleteDoc, doc, getDocs, onSnapshot, query, where } from 'firebase/firestore';
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import BlogSection from '../components/BlogSection';
 import Spinner from '../components/Spinner';
 import { db } from '../firebase';
@@ -8,7 +8,7 @@ import Tags from '../components/Tags';
 import MostPopular from '../components/MostPopular';
 import Trending from '../components/Trending';
 
-const Home = ({setActive, user}) => {
+const Home = ({ setActive, user }) => {
 
   const [loading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
@@ -21,7 +21,7 @@ const Home = ({setActive, user}) => {
     const querySnapshot = await getDocs(trendQuery);
     let trendBlogs = [];
     querySnapshot.forEach((doc) => {
-      trendBlogs.push({id: doc.id, ...doc.data()})
+      trendBlogs.push({ id: doc.id, ...doc.data() })
     });
     setTrendBlogs(trendBlogs);
   }
@@ -35,7 +35,7 @@ const Home = ({setActive, user}) => {
         let tags = [];
         snapshot.docs.forEach((doc) => {
           tags.push(...doc.get("tags"));
-          list.push({id: doc.id, ...doc.data()})
+          list.push({ id: doc.id, ...doc.data() })
         });
         const uniquetags = [...new Set(tags)];
         setTags(uniquetags);
@@ -53,16 +53,16 @@ const Home = ({setActive, user}) => {
     }
   }, [setActive]);
 
-  if(loading){
+  if (loading) {
     return <Spinner />
   }
-  
+
   const handleDelete = async (id) => {
-    if(window.confirm("Are you sure wanted to delete that blog ?")){
+    if (window.confirm("Silmek istediğinize emin misiniz ?")) {
       try {
         setLoading(true);
         await deleteDoc(doc(db, "blogs", id));
-        toast.success("Blog deleted successfully");
+        toast.success("Blog başarılı bir şekilde silindi");
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -76,13 +76,14 @@ const Home = ({setActive, user}) => {
         <div className="container padding">
           <div className="row mx-0">
             <Trending blogs={trendBlogs} />
-            <div className="col-md-8">
-              <BlogSection blogs={blogs} user={user} handleDelete={handleDelete}  />
-            </div>
             <div className="col-md-3">
               <Tags tags={tags} />
               <MostPopular blogs={blogs} />
             </div>
+            <div className="col-md-8">
+              <BlogSection blogs={blogs} user={user} handleDelete={handleDelete} />
+            </div>
+
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@ const Detail = ({setActive}) => {
           <div className="row mx-0">
             <div className="col-md-8">
               <span className="meta-info text-start">
-                By <p className="author">{blog?.author}</p> - &nbsp;
+                Yazar:  <p className="author">{blog?.author}</p> - &nbsp;
                 {blog?.timestamp.toDate().toDateString()}
               </span>
               <p className="text-start">{blog?.description}</p>

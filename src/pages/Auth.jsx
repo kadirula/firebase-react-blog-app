@@ -34,12 +34,12 @@ const Auth = ({setActive, setUser}) => {
         setActive("home")
       }
       else{
-        return toast.error("All fields are mandatory to fill");
+        return toast.error("Tüm alanların doldurulması zorunludur");
       }
     }
     else{
       if(password !== confirmPassword){
-        return toast.error("Password don't match")
+        return toast.error("Şifreler eşleşmiyor")
       }
       if(firstName && lastName && email && password){
         const {user} = await createUserWithEmailAndPassword(auth, email, password);
@@ -47,7 +47,7 @@ const Auth = ({setActive, setUser}) => {
         setActive("home");
       }
       else{
-        return toast.error("All fields are mandatory to fill");
+        return toast.error("Tüm alanların doldurulması zorunludur");
       }
     }
     navigate("/");
@@ -58,7 +58,7 @@ const Auth = ({setActive, setUser}) => {
       <div className="container">
         <div className="col-12 text-center">
           <div className="text-center heading py-2">
-            {!signUp ? "Sign-In" : "Sign-Up"}
+            {!signUp ? "Giriş Yap" : "Kayıt Ol"}
           </div>
         </div>
         <div className="row h-100 justify-content-center align-items-center">
@@ -70,7 +70,7 @@ const Auth = ({setActive, setUser}) => {
                     <input
                       type="text"
                       className='form-control input-text-box'
-                      placeholder='First Name'
+                      placeholder='Adınız'
                       name='firstName'
                       value={firstName}
                       onChange={handleChange}
@@ -80,7 +80,7 @@ const Auth = ({setActive, setUser}) => {
                     <input
                       type="text"
                       className='form-control input-text-box'
-                      placeholder='Last Name'
+                      placeholder='Soyadınız'
                       name='lastName'
                       value={lastName}
                       onChange={handleChange}
@@ -102,7 +102,7 @@ const Auth = ({setActive, setUser}) => {
                 <input
                   type="password"
                   className='form-control input-text-box'
-                  placeholder='Password'
+                  placeholder='Şifre'
                   name='password'
                   value={password}
                   onChange={handleChange}
@@ -114,7 +114,7 @@ const Auth = ({setActive, setUser}) => {
                     <input
                       type="password"
                       className='form-control input-text-box'
-                      placeholder='Confirm Password'
+                      placeholder='Şifre Tekrar'
                       name='confirmPassword'
                       value={confirmPassword}
                       onChange={handleChange}
@@ -127,7 +127,7 @@ const Auth = ({setActive, setUser}) => {
                 <button
                   className={`btn ${!signUp ? 'btn-sign-in' : 'btn-sign-up'}`}
                   type="submit">
-                  {!signUp ? "Sign-in" : "Sign-up"}
+                  {!signUp ? "Giriş Yap" : "Kayıt Ol"}
                 </button>
               </div>
             </form>
@@ -136,13 +136,13 @@ const Auth = ({setActive, setUser}) => {
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
                     <p className="small fw-bold mt-2 pt-1 mb-0">
-                      Don't have an account ? &nbsp;
+                      Hesabınız yok mu ? &nbsp;
                       <span
                         className="link-danger"
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         onClick={() => setSignUp(true)}
                       >
-                        Sign Up
+                        Kayıt Ol
                       </span>
                     </p>
                   </div>
@@ -151,12 +151,12 @@ const Auth = ({setActive, setUser}) => {
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
                     <p className="small fw-bold mt-2 pt-1 mb-0">
-                      Already have an account ? &nbsp;
+                    Zaten hesabınız var mı ? &nbsp;
                       <span
                         style={{ textDecoration: "none", cursor: "pointer", color: "#298af2" }}
                         onClick={() => setSignUp(false)}
                       >
-                        Sign In
+                        Giriş Yap
                       </span>
                     </p>
                   </div>

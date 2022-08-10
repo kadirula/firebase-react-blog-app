@@ -29,7 +29,7 @@ const Trending = ({ blogs }) => {
     return (
         <>
             <div>
-                <div className="blog-heading text-start py-2 mb-4">Trending</div>
+                <div className="blog-heading text-start py-2 mb-4">Popüler Yazılar</div>
             </div>
             <OwlCarousel className="owl-theme" {...options}>
                 {blogs?.map((item) => (

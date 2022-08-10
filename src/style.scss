@@ -1,4 +1,4 @@
-$yellow:#f5bc04;
+$light-blue:#0679a8;
 
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
@@ -50,7 +50,7 @@ $yellow:#f5bc04;
 	padding-right: 20px!important;
 	margin: 0 20px!important;
 	@include transition(0.5s);
-	background: $yellow!important;
+	background: $light-blue!important;
 	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
 }
 .navbar-light .navbar-nav .nav-link {
@@ -65,7 +65,7 @@ $yellow:#f5bc04;
 	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
 
 	&:focus, &:hover {
-		background: $yellow!important;
+		background: $light-blue!important;
 		color: #fff!important;
 		padding-top: 12px!important;
 		padding-bottom: 15px!important;
@@ -105,7 +105,7 @@ $yellow:#f5bc04;
 
 .form-control:focus {
     box-shadow: none !important;
-    border-color: $yellow !important;
+    border-color: $light-blue !important;
 }
 
 .btn-sign-in {
@@ -125,7 +125,7 @@ $yellow:#f5bc04;
 }
 
 .blog-form input:focus {
-    border-color: $yellow !important;
+    border-color: $light-blue !important;
 }
 
 .description-box {
@@ -149,7 +149,7 @@ $yellow:#f5bc04;
 }
 
 .react-tag-input:focus {
-    border-color: $yellow !important;   
+    border-color: $light-blue !important;   
 }
 
 .catg-dropdown {
@@ -161,7 +161,7 @@ $yellow:#f5bc04;
   
   .catg-dropdown:focus {
       outline: none !important;
-      border-color: $yellow;
+      border-color: $light-blue;
   }
   
   .trending {
@@ -192,10 +192,11 @@ $yellow:#f5bc04;
 .blogs-img > img {
     height: 260px;
 	min-width: 100%;
+	transition: all .5s;
 }
 
-.hover-blogs-img:hover > .blogs-img {
-    top: -7px;
+.hover-blogs-img:hover > .blogs-img > img {
+    transform: scale(1.08);
 	@include box-shadow(0, 2px, 3px, 1px, rgba(0,0,0,0.3));
 }
 
@@ -212,7 +213,7 @@ $yellow:#f5bc04;
 .category {
     display: inline-block;
     position: relative;
-    background-color: #4287f5;
+    background-color: $light-blue;
     padding: 4px 8px;
     color: #fff;
     text-decoration: none;
@@ -257,13 +258,17 @@ $yellow:#f5bc04;
 }
 
 .btn-read {
-    background: #544e66 !important;
+    background: $light-blue;
 	@include border-radius(0!important);
 	color: #fff!important;
 	padding: 5px 10px!important;
 	float: left;
 	margin-top: 10px;
 	font-size: 14px;
+	transition: all .3s;
+	&:hover{
+		background: rgba($light-blue, 0.8) ;
+	}
 }
 
 // Detail
@@ -340,6 +345,10 @@ $yellow:#f5bc04;
 
 // Tags
 
+.tags{
+	display: flex;
+	flex-wrap: wrap;
+}
 .tags > a {
     text-decoration: none;
 }
@@ -354,7 +363,7 @@ $yellow:#f5bc04;
 	display: inline-block;
 }
 .tag:hover, .tag:focus {
-	background: $yellow;
+	background: $light-blue;
 	color: #fff;
 	text-decoration: none;
 }
@@ -384,12 +393,14 @@ $yellow:#f5bc04;
 }
 
 .trending-img-size {
-	height: 326px;
+	height: 300px;
 	overflow: hidden;
 }
 .trending-img-size > img {
-	height: 340px;
+	height: 100%;
 	min-width: 100%;
+	object-fit: cover;
+	transition: all .5s;
 }
 
 .trending-img-relative {
@@ -421,61 +432,6 @@ $yellow:#f5bc04;
 	font-size: 13px;
 }
 
-.trending-img-position:hover {
-	-webkit-animation: swing1 1s ease;
-	animation: swing1 1s ease;
-	-webkit-animation-iteration-count: 1;
-	animation-iteration-count: 1;
-}
- @-webkit-keyframes swing1 {
- 15% {
- -webkit-transform: translateX(5px);
- transform: translateX(5px);
-}
- 30% {
- -webkit-transform: translateX(-5px);
- transform: translateX(-5px);
-}
- 50% {
- -webkit-transform: translateX(3px);
- transform: translateX(3px);
-}
- 65% {
- -webkit-transform: translateX(-3px);
- transform: translateX(-3px);
-}
- 80% {
- -webkit-transform: translateX(2px);
- transform: translateX(2px);
-}
- 100% {
- -webkit-transform: translateX(0);
- transform: translateX(0);
-}
-}
-@keyframes swing1 {
- 15% {
- -webkit-transform: translateX(5px);
- transform: translateX(5px);
-}
- 30% {
- -webkit-transform: translateX(-5px);
- transform: translateX(-5px);
-}
- 50% {
- -webkit-transform: translateX(3px);
- transform: translateX(3px);
-}
- 65% {
- -webkit-transform: translateX(-3px);
- transform: translateX(-3px);
-}
- 80% {
- -webkit-transform: translateX(2px);
- transform: translateX(2px);
-}
- 100% {
- -webkit-transform: translateX(0);
- transform: translateX(0);
-}
+.trending-img-position:hover img {
+	transform: scale(1.08);
 }

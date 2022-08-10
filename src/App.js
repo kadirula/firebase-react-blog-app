@@ -5,7 +5,6 @@ import './media-query.css';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import AddEditBlog from './pages/AddEditBlog';
-import About from './pages/About';
 import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
@@ -56,13 +55,12 @@ function App() {
         <Route path="/detail/:id" element={<Detail setActive={setActive} />} />
         <Route
           path="/create"
-          element={user?.uid ? <AddEditBlog user={user} /> : <Navigate to="/" />}
+          element={user?.uid ? <AddEditBlog user={user} /> : <Navigate to="/auth" />}
         />
         <Route
           path="/update/:id"
-          element={user?.uid ? <AddEditBlog user={user} setActive={setActive} /> : <Navigate to="/" />}
+          element={user?.uid ? <AddEditBlog user={user} setActive={setActive} /> : <Navigate to="/auth" />}
         />
-        <Route path="/about" element={<About />} />
         <Route path="/auth" element={<Auth setActive={setActive} setUser={setUser} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

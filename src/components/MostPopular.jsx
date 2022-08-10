@@ -7,7 +7,7 @@ const MostPopular = ({ blogs }) => {
 
     return (
         <div>
-            <div className="blog-heading text-start pt-3 py-2 mb-4">Most Popular</div>
+            <div className="blog-heading text-start pt-3 py-2 mb-4">En Çok Okunanlar</div>
             {blogs?.map((item) => (
                 <div
                     className="row pb-3"
