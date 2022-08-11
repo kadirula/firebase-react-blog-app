@@ -4,7 +4,10 @@ const Tags = ({tags}) => {
   return (
     <div>
       <div>
-        <div className="blog-heading text-start py-2 mb-4">Tags</div>
+        <div className="blog-heading text-start py-2">
+          <h2>Tags</h2>
+          <h2>Tags</h2>
+        </div>
       </div>
       <div className="tags">
         {tags?.map((tag, index) => (

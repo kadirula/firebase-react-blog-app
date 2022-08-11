@@ -47,7 +47,7 @@ const Detail = ({setActive}) => {
       <div className="blog-title-box" style={{backgroundImage: `url('${blog?.imgUrl}')`}}>
         <div className="overlay"></div>
         <div className="blog-title">
-          <span>{blog?.timestamp.toDate().toDateString()}</span>
+          <span>{new Date(blog?.timestamp.toDate().toDateString()).toLocaleDateString("tr-TR")}</span>
           <h2>{blog?.title}</h2>
         </div>
       </div>
@@ -57,7 +57,7 @@ const Detail = ({setActive}) => {
             <div className="col-md-8">
               <span className="meta-info text-start">
                 Yazar:  <p className="author">{blog?.author}</p> - &nbsp;
-                {blog?.timestamp.toDate().toDateString()}
+                {new Date(blog?.timestamp.toDate().toDateString()).toLocaleDateString("tr-TR")}
               </span>
               <p className="text-start">{blog?.description}</p>
             </div>

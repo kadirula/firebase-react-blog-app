@@ -42,37 +42,25 @@ $light-blue:#0679a8;
 }
 
 // Header
-.navbar-light .navbar-nav .open > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .nav-link.active {
-	color: #fff!important;
-	padding-top: 12px!important;
-	padding-bottom: 15px!important;
-	padding-left: 20px!important;
-	padding-right: 20px!important;
-	margin: 0 20px!important;
-	@include transition(0.5s);
-	background: $light-blue!important;
-	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
-}
 .navbar-light .navbar-nav .nav-link {
-	color: #222!important;
-	padding-top: 12px!important;
-	padding-bottom: 15px!important;
-	padding-left: 20px!important;
-	padding-right: 20px!important;
-	margin: 0 20px!important;
+	color: #222;
+	padding-top: 12px;
+	// padding-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 20px;
 	@include transition(0.5s);
-	position: relative!important;
-	@include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
+	position: relative;
 
-	&:focus, &:hover {
-		background: $light-blue!important;
-		color: #fff!important;
-		padding-top: 12px!important;
-		padding-bottom: 15px!important;
-		padding-left: 20px!important;
-		padding-right: 20px!important;
-		margin: 0 20px;
-		position: relative;
+	&.active:focus, &.active::after{
+		content: "";
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: $light-blue;
+		transition: all .4s;
 	}
 }
 
@@ -174,9 +162,24 @@ $light-blue:#0679a8;
   //   Blog Section
 
 .blog-heading {
-    font-size: 20px;
-	color: #424040;
-    border-bottom: 1px solid #777;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	h2{
+		font-size: 30px;
+		font-weight: 700;
+		background-color: $light-blue;
+		color: #fff;
+		display: block;
+		padding: 15px;
+	}
+	h2:nth-child(2){
+		position: absolute;
+		background-color: #fff;
+		color: $light-blue;
+		clip-path: inset(-1% -1% 47% -1%);
+	}
 }
 
 .blogs-img {
@@ -195,6 +198,8 @@ $light-blue:#0679a8;
 	transition: all .5s;
 }
 
+
+
 .hover-blogs-img:hover > .blogs-img > img {
     transform: scale(1.08);
 	@include box-shadow(0, 2px, 3px, 1px, rgba(0,0,0,0.3));
@@ -209,11 +214,8 @@ $light-blue:#0679a8;
 	display: block;
 }
 
-
-.category {
-    display: inline-block;
-    position: relative;
-    background-color: $light-blue;
+.category.catg-color{
+	background-color: $light-blue;
     padding: 4px 8px;
     color: #fff;
     text-decoration: none;
@@ -222,6 +224,10 @@ $light-blue:#0679a8;
     line-height: 16px;
     font-weight: 700;
     border-radius: 4px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
 }
 
 .fa-trash {

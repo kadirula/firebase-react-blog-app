@@ -23,12 +23,13 @@ const initialState = {
 };
 
 const categoryOption = [
-  "Fashion",
-  "Technology",
-  "Food",
-  "Politics",
-  "Sports",
-  "Business",
+  "Moda",
+  "Teknoloji",
+  "Yiyecek",
+  "Siyaset",
+  "Spor",
+  "Ticaret",
+  "Yazılım"
 ];
 
 const AddEditBlog = ({ user, setActive }) => {

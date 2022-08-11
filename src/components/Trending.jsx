@@ -29,9 +29,12 @@ const Trending = ({ blogs }) => {
     return (
         <>
             <div>
-                <div className="blog-heading text-start py-2 mb-4">Popüler Yazılar</div>
+                <div className="blog-heading text-start py-2 mb-4">
+                    <h2>Popüler Yazılar</h2>
+                    <h2>Popüler Yazılar</h2>
+                </div>
             </div>
-            <OwlCarousel className="owl-theme" {...options}>
+            <OwlCarousel className="owl-theme mb-5" {...options}>
                 {blogs?.map((item) => (
                     <div className="item px-2" key={item.id}>
                         <Link to={`/detail/${item.id}`}>
@@ -47,7 +50,7 @@ const Trending = ({ blogs }) => {
                                 <div className="trending-img-absolute-1">
                                     <span className="text-white">{item.title}</span>
                                     <div className="trending-meta-info">
-                                        {item.author} - {item.timestamp.toDate().toDateString()}
+                                        {item.author} - {new Date(item.timestamp.toDate().toDateString()).toLocaleDateString("tr-TR") }
                                     </div>
                                 </div>
                             </div>
