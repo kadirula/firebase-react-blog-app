@@ -23,4 +23,4 @@ Toastify, FontAwesome, Sass, React Tag Input
 
 ## Ekran Görüntüleri
 
-![Proje Ekran Görüntüsü](public/images/home-screenshot.png?raw=true "Title")
+<!-- ![Proje Ekran Görüntüsü](public/images/home-screenshot.png?raw=true "Title") -->
